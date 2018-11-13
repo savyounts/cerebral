@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Card, :type => :model do
+RSpec.describe Deck, :type => :model do
 
   let(:user) {
       User.create!
@@ -55,7 +55,7 @@ RSpec.describe Card, :type => :model do
       expect(deck2.rounds).to eq([round])
     end
 
-    
+
 
 
 

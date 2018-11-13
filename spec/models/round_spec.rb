@@ -1,4 +1,4 @@
-RSpec.describe Card, :type => :model do
+RSpec.describe Round, :type => :model do
 
   let(:user) {
       User.create!
@@ -7,17 +7,9 @@ RSpec.describe Card, :type => :model do
     let(:round) {
         Round.create(
           deck_id: deck.id,
-          user_id: user.id,
-          score: 10
+          user_id: user.id
         )
       }
-
-      let(:round2) {
-          Round.create(
-            deck_id: deck.id,
-            user_id: user.id
-          )
-        }
 
   let(:deck) {
       Deck.create(
@@ -32,7 +24,7 @@ RSpec.describe Card, :type => :model do
     end
 
     it "should have a default score of 0" do
-      expect(round2.score).to eq(0)
+      expect(round.score).to eq(0)
     end
 
     it "should know the current card" do
@@ -54,6 +46,13 @@ RSpec.describe Card, :type => :model do
       round.guesses << guess
       expect(round.number_correct).to eq(1)
     end
+
+    # it "number correct should update the score" do
+    #   card1 = Card.create(question:'1', answer:'2', deck_id: deck.id)
+    #   guess = Guess.new(response:"2", round_id: round.id, card_id: card1.id)
+    #   round.guesses << guess
+    #   expect(round.score).to eq(1)
+    # end
 
     it "should return percent correct" do
       card1 = Card.create(question:'1', answer:'2', deck_id: deck.id)
