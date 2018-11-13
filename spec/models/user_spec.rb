@@ -13,6 +13,7 @@ RSpec.describe User, :type => :model do
     end
 
     it "doesn't allow for two users with the same username" do
+      user
       sav2 = User.create(username: "sav", email:"sav@sav.com", password: "sav")
       expect(sav2).not_to be_valid
     end
