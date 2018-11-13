@@ -51,12 +51,13 @@ RSpec.describe Round, :type => :model do
       expect(round.number_correct).to eq(1)
     end
 
-    # it "number correct should update the score" do
-    #   card1 = Card.create(question:'1', answer:'2', deck_id: deck.id)
-    #   guess = Guess.new(response:"2", round_id: round.id, card_id: card1.id)
-    #   round.guesses << guess
-    #   expect(round.score).to eq(1)
-    # end
+    it "number correct should update the score" do
+      card1 = Card.create(question:'1', answer:'2', deck_id: deck.id)
+      guess = Guess.new(response:"2", round_id: round.id, card_id: card1.id)
+      round.guesses << guess
+      round.number_correct
+      expect(round.score).to eq(1)
+    end
 
     it "should return percent correct" do
       card1 = Card.create(question:'1', answer:'2', deck_id: deck.id)

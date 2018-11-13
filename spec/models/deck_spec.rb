@@ -59,8 +59,20 @@ RSpec.describe Deck, :type => :model do
       expect(deck2.rounds).to eq([round])
     end
 
+    it "scores returns array of all round scores in decending order" do
+      deck2.rounds << round
+      expect(deck2.scores).to eq([10])
+    end
 
+    it "updates the highscore" do
+      deck2.rounds << round
+      expect(deck2.highscore).to eq(10)
+    end
 
-
-
+    it "should return the average score of all the rounds" do
+      round2 = Round.create(deck_id: deck2.id, user_id: user.id)
+      deck2.rounds << round2
+      deck2.rounds << round
+      expect(deck2.average_score).to eq(5)
+    end
 end

@@ -5,8 +5,6 @@ class Round < ApplicationRecord
 
   validates :deck_id, :user_id, presence: true
 
-
-
   def current_card
     deck.cards[guesses.size]
   end

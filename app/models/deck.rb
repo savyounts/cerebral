@@ -6,10 +6,12 @@ class Deck < ApplicationRecord
 
   validates :user_id, :name, presence: true
 
-
-
   def scores
     rounds.map {|round| round.score}.sort.reverse!
+  end
+
+  def average_score
+    (scores.sum)/rounds.size
   end
 
   def highscore
