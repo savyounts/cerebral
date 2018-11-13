@@ -7,8 +7,11 @@ ruby '2.3.3'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# Need for deploying to Heroku
+gem 'rails_12factor', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'dotenv-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
