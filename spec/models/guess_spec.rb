@@ -1,7 +1,11 @@
-RSpec.describe Card, :type => :model do
+RSpec.describe Guess, :type => :model do
 
   let(:user) {
-      User.create!
+    User.create(
+      username: "sav",
+      email: "sav@sav.com",
+      password: "sav"
+    )
     }
 
     let(:round) {
@@ -13,6 +17,7 @@ RSpec.describe Card, :type => :model do
 
       let(:deck) {
           Deck.create(
+            name: "my deck",
             user_id: user.id
           )
         }

@@ -3,11 +3,16 @@ require 'rails_helper'
 RSpec.describe Card, :type => :model do
 
   let(:user) {
-      User.create!
+      User.create(
+        username: "sav",
+        email: "sav@sav.com",
+        password: "sav"
+      )
     }
 
   let(:deck) {
-      Deck.create!(
+      Deck.create(
+        name: "my deck",
         user_id: user.id
       )
     }

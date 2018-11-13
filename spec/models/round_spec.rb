@@ -1,7 +1,11 @@
 RSpec.describe Round, :type => :model do
 
   let(:user) {
-      User.create!
+    User.create(
+      username: "sav",
+      email: "sav@sav.com",
+      password: "sav"
+    )
     }
 
     let(:round) {

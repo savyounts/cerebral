@@ -3,7 +3,11 @@ require 'rails_helper'
 RSpec.describe Deck, :type => :model do
 
   let(:user) {
-      User.create!
+    User.create(
+      username: "sav",
+      email: "sav@sav.com",
+      password: "sav"
+    )
     }
 
     let(:round) {
