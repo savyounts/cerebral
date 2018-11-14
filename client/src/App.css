@@ -50,15 +50,15 @@
     background: url(./images/home.jpg) no-repeat center fixed;
     background-size: cover;
     height: 500px;
-    overflow: hidden;
   }
   .home-info{
     display:flex;
     justify-content: flex-end;
     align-items: center;
     width: 80%;
-    height: 100%;
+    padding-top: 3em;
     margin: auto;
+    margin-bottom: 150px;
 
   }
 

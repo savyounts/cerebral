@@ -5,9 +5,9 @@ import styled from 'styled-components'
 const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em;
-  color: ${props => props.inputColor || "#56E39F"};
+  color: ${props => props.inputColor || "#7BC68F"};
   background: none;
-  border: #3b2c35;
+  border: #7BC68F;
 `;
 
 
@@ -39,16 +39,17 @@ class Navigation extends PureComponent {
           <section className="navbar-ul">
             <form className="form-inline my-2 my-lg-0">
               <Input type="search" placeholder="Search" onChange={this.handleChange}/>
-
               <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+
             <div className="verticalLine">
-              <NavItem name="create" path="/" className="navbar-ul" pageURI={this.pageURI}/>
+              <NavItem name="create" path="/decks/new" className="navbar-ul" pageURI={this.pageURI}/>
             </div>
-        </section>
+          </section>
+
           <ul className="navbar-ul">
-            <NavItem name="Login" path="/page2" className={this.liClassName} pageURI={this.pageURI}/>
-            <NavItem name="Signup" path="/page3" className='signup-button' pageURI={this.pageURI}/>
+            <NavItem name="Login" path="/login" className={this.liClassName} pageURI={this.pageURI}/>
+            <NavItem name="Signup" path="/signup" className='signup-button' pageURI={this.pageURI}/>
           </ul>
 
         </div>
