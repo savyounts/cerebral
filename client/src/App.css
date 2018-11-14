@@ -1,3 +1,4 @@
+/* Navigation */
 .navbar-custom{
   background-color: #2a1f2d;
   height: 7em;
@@ -13,23 +14,75 @@
     white-space: nowrap;
   }
 
-  .signup-button{
-    background-color: #56e39f;
-    padding: .5em;
-  }
-
-.signup-button a{
-  color: #2a1f2d
+.signup-button{
+  background-color: #56e39f;
+  padding: .5em;
 }
 
+.signup-button a{
+  color: #2a1f2d;
+}
+
+.full-nav{
+  justify-content: space-between;
+}
+.verticalLine {
+  border-left: 2px solid #3b2c35;
+  margin-left: 1em;
+  height: 4em;
+  padding: 1em;
+}
 .navbar-ul{
   display: flex;
   justify-content: flex-end;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  align-items: baseline;
 }
   nav a {
     color: #56e39f;
     text-align: right;
+  }
+
+  /* Home page */
+  .home-page{
+    background: url(./images/home.jpg) no-repeat center fixed;
+    background-size: cover;
+    height: 500px;
+    overflow: hidden;
+  }
+  .home-info{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+
+  }
+
+  .home-self{
+    width: 60%;
+    color: #2a1f2d;
+  }
+
+  .home-self h1{
+    font-size: 4em;
+  }
+
+  .get-started{
+    display: inline-block;
+    background-color: #56e39f;
+    color: #2a1f2d;
+    font-size: 1em;
+    padding: 1.75em;
+    width: 25em;
+    height: 5em;
+    text-align: center;
+  }
+
+  .get-started:hover{
+    color: #2a1f2d;
+    text-decoration: none;
   }

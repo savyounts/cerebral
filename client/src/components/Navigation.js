@@ -35,16 +35,18 @@ class Navigation extends PureComponent {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse full-nav" id="navbarSupportedContent">
+          <section className="navbar-ul">
+            <form className="form-inline my-2 my-lg-0">
+              <Input type="search" placeholder="Search" onChange={this.handleChange}/>
 
-          <form className="form-inline my-2 my-lg-0">
-            <Input type="search" placeholder="Search" onChange={this.handleChange}/>
-
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-
+              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div className="verticalLine">
+              <NavItem name="create" path="/" className="navbar-ul" pageURI={this.pageURI}/>
+            </div>
+        </section>
           <ul className="navbar-ul">
-            <NavItem name="create" path="/" className={this.liClassName} pageURI={this.pageURI}/>
             <NavItem name="Login" path="/page2" className={this.liClassName} pageURI={this.pageURI}/>
             <NavItem name="Signup" path="/page3" className='signup-button' pageURI={this.pageURI}/>
           </ul>
