@@ -4,12 +4,13 @@ class RoundsController < ApplicationController
   # GET /rounds
   def index
     @rounds = Round.all
-
+    
     render json: @rounds
   end
 
   # GET /rounds/1
   def show
+
     render json: @round
   end
 

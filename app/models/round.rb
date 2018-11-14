@@ -15,9 +15,13 @@ class Round < ApplicationRecord
   end
 
   def number_correct
-    guesses.each {|guess| self.score += 1 if guess.correct?}
-    save
-    self.score
+    counter = 0
+    guesses.each {|guess| counter += 1 if guess.correct?}
+    counter
+  end
+
+  def score
+    number_correct
   end
 
   def percent_correct

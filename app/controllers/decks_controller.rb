@@ -4,7 +4,6 @@ class DecksController < ApplicationController
   # GET /decks
   def index
     @decks = Deck.all
-
     render json: @decks
   end
 
