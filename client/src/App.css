@@ -86,3 +86,54 @@
     color: #291F2E;
     text-decoration: none;
   }
+
+  /* Home page -- Decks Containter */
+  .decks-container{
+    width: 90%;
+    margin: 11em auto;
+    text-align: center;
+  }
+
+  .card-deck{
+    justify-content: space-between;
+  }
+
+/* individual deck divs  */
+  .deck-div{
+    box-shadow: 2px 2px 10px #CFD1D2;
+    flex-basis: 30%;
+    margin: 1em;
+    padding: .5em;
+    text-align: left;
+  }
+
+  .deck-div:hover{
+    border-bottom: 4px solid #7BC68F;
+  }
+
+  .top-info{
+    font-size: .75em;
+    color: #291F2E;
+  }
+
+  .username{
+    color: #7BC68F;
+    border-left: 1px solid #291F2E;
+    padding-left: .5em;
+    margin:.25em;
+  }
+
+  .deck-div h4{
+    color: #291F2E;
+    margin: .5em 0;
+
+  }
+
+  .deck-div button{
+    background: none;
+  }
+
+  .deck-div footer{
+    display:flex;
+    justify-content: space-between;
+  }
