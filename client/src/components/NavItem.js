@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 // const Link = styled.a`
 //   padding: 0.5em;
@@ -14,10 +15,10 @@ import styled from 'styled-components'
 const NavItem = (props) => {
   return(
   <li className={props.className}>
-    <a className="nav-link" href={props.path} >
+    <Link className="nav-link" to={props.path}>
       {props.name}
       {(props.path === props.pageURI) ? (<span className="sr-only">(current)</span>) : ''}
-    </a>
+    </Link>
   </li>
 )}
 
