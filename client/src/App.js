@@ -12,7 +12,6 @@ componentDidMount(){
   this.props.fetchDecks()
 }
 
-
   render() {
     return (
       <div>
@@ -23,8 +22,8 @@ componentDidMount(){
   }
 }
 
-const mapStateToProps = state => {
-  return {decks: state.decks}
-}
+// const mapStateToProps = state => {
+//   return {decks: state.decks}
+// }
 
-export default connect(mapStateToProps, {fetchDecks})(App);
+export default connect(null, {fetchDecks})(App);

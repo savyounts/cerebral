@@ -10,9 +10,10 @@ import rootReducer from './reducers/rootReducer';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import {loadDecks} from './actions/deckActions';
+import decksReducer from './reducers/decksReducer';
 
 const middleware = applyMiddleware(thunk);
-const store = createStore(rootReducer,
+const store = createStore(decksReducer,
   compose(
     middleware,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -28,7 +29,7 @@ ReactDOM.render((
       <Provider store={store}>
         <App />
       </Provider>
-  </React.Fragment>
+    </React.Fragment>
   </BrowserRouter>
 ), document.getElementById('root'));
 

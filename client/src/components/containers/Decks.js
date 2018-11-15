@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Deck from '../presentational/Deck'
+import { connect } from 'react-redux'
 
 class Decks extends React.Component{
   state = {
@@ -18,16 +19,14 @@ class Decks extends React.Component{
     <div className="decks-container">
       <h1>102<br></br> Study Sets and Counting.</h1><br></br>
       <div className="card-deck">
-        <Deck value={this.state.value} onChange={this.handleChange}/>
-        <Deck value={this.state.value} onChange={this.handleChange}/>
-        <Deck value={this.state.value} onChange={this.handleChange}/>
-        <Deck value={this.state.value} onChange={this.handleChange}/>
-        <Deck value={this.state.value} onChange={this.handleChange}/>
-        <Deck value={this.state.value} onChange={this.handleChange}/>
-        <Deck value={this.state.value} onChange={this.handleChange}/>
+        {this.props.decks.map(deck => <Deck value={this.state.value} onChange={this.handleChange} deck={deck}/>)}
       </div>
     </div>
   )}
 }
 
-export default Decks
+const mapStateToProps = state => {
+  return {decks: state.decks}
+}
+
+export default connect(mapStateToProps)(Decks)
