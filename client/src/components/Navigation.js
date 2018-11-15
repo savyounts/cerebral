@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import NavItem from './NavItem'
+import NavItem from './presentational/NavItem'
 import styled from 'styled-components'
 
 const Input = styled.input`

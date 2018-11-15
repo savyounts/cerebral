@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Deck from './presentational/Deck'
+import Deck from '../presentational/Deck'
 
 class Decks extends React.Component{
   state = {

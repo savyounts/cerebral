@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Main from './components/Main'
+import Header from './components/presentational/Header'
+import Main from './components/containers/Main'
+import {fetchDecks} from './actions/deckActions'
+import {connect} from 'react-redux'
 
 class App extends Component {
+
+componentDidMount(){
+  this.props.fetchDecks()
+}
+
+
   render() {
     return (
       <div>
         <Header />
-        <Main />
+        <Main decks={this.props.decks}/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {decks: state.decks}
+}
+
+export default connect(mapStateToProps, {fetchDecks})(App);
