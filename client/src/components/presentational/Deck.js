@@ -4,7 +4,7 @@ const Deck = ({deck, value, onChange}) => {
   return(
     <div className="deck-div">
       <header className="top-info">
-        <span>{deck.cards.length} terms</span> <span className="username">Username</span>
+        <span>{deck.cards.length} terms</span> <span className="username">HighScore: {deck.highscore}</span>
       </header>
       <h4>{deck.name}</h4>
       <footer>

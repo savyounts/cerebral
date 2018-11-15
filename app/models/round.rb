@@ -1,9 +1,9 @@
 class Round < ApplicationRecord
   belongs_to :deck
-  belongs_to :user
+  # belongs_to :user
   has_many :guesses
 
-  validates :deck_id, :user_id, presence: true
+  validates :deck_id, presence: true
 
   def current_card
     deck.cards[guesses.size]

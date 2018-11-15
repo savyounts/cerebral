@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2018_11_13_213730) do
   create_table "decks", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "user_id"
     t.integer "highscore", default: 0
     t.string "edit_pwd"
     t.string "view_pwd"
@@ -46,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_213730) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer "deck_id"
-    t.integer "user_id"
+    t.string "username"
     t.integer "score", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

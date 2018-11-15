@@ -3,9 +3,11 @@ class Deck < ApplicationRecord
   attr_accessor :average_score, :scores
   has_many :cards
   has_many :rounds
-  belongs_to :user
+  # belongs_to :user
 
-  validates :user_id, :name, presence: true
+  validates  :name, presence: true
+  # validates :user_id, presence: true
+
 
   def scores
     rounds.map {|round| round.score}.sort.reverse!
