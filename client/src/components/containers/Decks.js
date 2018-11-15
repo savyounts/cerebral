@@ -1,25 +1,20 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
 import Deck from '../presentational/Deck'
 import { connect } from 'react-redux'
+import { Redirect, withRouter } from 'react-router'
+
 
 class Decks extends React.Component{
-  state = {
-    value: ''
-  }
 
-  handleChange = e =>{
-    this.setState({
-      value: e.target.value
-    })
-  }
+
 
   render(){
+    let DeckWithRouter = withRouter(Deck)
   return(
     <div className="decks-container">
-      <h1>102<br></br> Study Sets and Counting.</h1><br></br>
+      <h1>{this.props.decks.length}<br></br> Study Sets and Counting.</h1><br></br>
       <div className="card-deck">
-        {this.props.decks.map(deck => <Deck value={this.state.value} onChange={this.handleChange} deck={deck}/>)}
+        {this.props.decks.map(deck => <DeckWithRouter key={deck.id} deck={deck}/>)}
       </div>
     </div>
   )}

@@ -139,4 +139,35 @@
   }
 
   /* DECK Show Page */
-  
+  /* Top Scores */
+.highscore-box{
+  width: 30%;
+  background-color: #EDEDED;
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-right: 2em;
+  margin: .25em;
+}
+
+.highscore-info-box{
+  display:flex;
+  justify-content: space-between;
+  width:85%;
+  padding: 0 1em;
+}
+
+.highscore-info-box span{
+  width: 30%;
+  text-align: center;
+}
+
+.highscore-num-box{
+  background-color: #7BC68F;
+  width: 15%;
+  display:flex;
+  justify-content: center;
+  padding-top: 1em;
+}
+
+/* Header */

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navigation from './components/Navigation'
 import Header from './components/presentational/Header'
 import Main from './components/containers/Main'
 import {fetchDecks} from './actions/deckActions'

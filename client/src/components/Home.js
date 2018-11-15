@@ -1,6 +1,5 @@
 import React from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import Decks from './containers/Decks'
 
 const Home = () =>{
@@ -15,7 +14,7 @@ return (
         your grades. Create competitions with your friends to see who
         can get the most right.
       </p>
-      <Link className="get-started" to={`/decks`}>Get Started.</Link>
+      <Link className="get-started" to={`/decks/new`}>Get Started.</Link>
     </div>
   </section>
 

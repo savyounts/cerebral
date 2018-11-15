@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function deckReducer(state = {loading:false, decks: []}, action){
   switch(action.type){
     case 'LOADING_DECKS':

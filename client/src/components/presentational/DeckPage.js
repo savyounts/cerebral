@@ -1,7 +1,7 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
 import TopScore from './TopScore'
 
+const topscores= [{time: 103, score: 2, username: "Savannah"}, {time: 103, score: 2, username: "sav"}, {time: 103, score: 2, username: "sav"}]
 const DeckPage = (props) => (
   <div>
     <header>
@@ -14,7 +14,7 @@ const DeckPage = (props) => (
 
       <section className="highscores">
         <p>Top Scores:</p>
-        {props.topscores.map((round, index) => <TopScore key={index} round={round} num={index+1}/>)}
+        {topscores.map((round, index) => <TopScore key={index} round={round} num={index+1}/>)}
       </section>
     </header>
 
