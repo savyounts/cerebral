@@ -6,7 +6,7 @@ export default function deckReducer(state = {loading:false, decks: []}, action){
       return {...state, loading:true}
 
     case 'FETCH_DECKS':
-    console.log({...state, decks: action.payload, loading:false})
+    console.log({decks: action.payload, loading:false})
 
       return {...state, decks: action.payload, loading:false}
 

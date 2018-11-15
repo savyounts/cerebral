@@ -32,6 +32,14 @@ module Cerebral
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    # CORS issues -- RackCORS
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
+
     # Middleware for ActiveAdmin
     config.middleware.use Rack::MethodOverride
     config.middleware.use ActionDispatch::Flash

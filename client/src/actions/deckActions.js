@@ -17,8 +17,8 @@
 export function fetchDecks(){
   return (dispatch) => {
     dispatch({ type: 'LOADING_DECKS' })
-      return fetch('http://localhost:3001/api/decks', {mode: 'no-cors'})
+      return fetch('http://localhost:3001/api/decks')
       .then(response => response.json())
-      .then(decks => dispatch({type: 'FETCH_DECKS', payload: decks}))
+      .then(decks =>  dispatch({type: 'FETCH_DECKS', payload: decks}))
     }
 }
