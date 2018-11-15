@@ -49,7 +49,7 @@
   .home-page{
     background: url(./images/home.jpg) no-repeat center fixed;
     background-size: cover;
-    height: 500px;
+    height: 550px;
   }
   .home-info{
     display:flex;
@@ -90,7 +90,7 @@
   /* Home page -- Decks Containter */
   .decks-container{
     width: 90%;
-    margin: 11em auto;
+    margin: 15em auto;
     text-align: center;
   }
 

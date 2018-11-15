@@ -19,7 +19,11 @@ gem 'dotenv-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
-gem 'rack-cors'  
+gem 'rack-cors'
+
+# Active Admin
+gem 'devise'
+gem 'activeadmin'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

@@ -4,6 +4,7 @@ import Home from "./Home"
 import Profile from "./Profile"
 import Footer from './Footer'
 import CreateDeck from './presentational/CreateDeck'
+import NotFound from './presentational/NotFound'
 
 const Main = () => (
   <main>
@@ -11,6 +12,7 @@ const Main = () => (
       <Route exact path='/' component={Home}/>
       <Route path='/decks/new' component={CreateDeck}/>
       <Route path='/user/:id' component={Profile}/>
+      <Route component={NotFound} />
     </Switch>
   <Footer/>
   </main>

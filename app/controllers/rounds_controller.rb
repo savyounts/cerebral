@@ -1,10 +1,10 @@
-class RoundsController < ApplicationController
+class RoundsController < ApiController
   before_action :set_round, only: [:show, :update, :destroy]
 
   # GET /rounds
   def index
     @rounds = Round.all
-    
+
     render json: @rounds
   end
 
