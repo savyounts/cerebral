@@ -4,7 +4,7 @@ import TopScore from './TopScore'
 const DeckHeader = ({deck, topscores}) =>
   <React.Fragment>
     <section className="top-info">
-      <span>'not working' terms</span> <span className="username">Highscore: {deck.highscore}</span>
+      <span>{ cardCount(deck) } terms</span> <span className="username">Highscore: {deck.highscore}</span>
       <h1>{deck.name}</h1>
        {/*<button className="copy-deck">copy</button>
       <button className="save-deck">save</button>*/}
@@ -20,6 +20,12 @@ function deb(deck) {
   if(deck === "") return null
 
   return deck.topscores.map((round, index) => <TopScore key={index} round={round} num={index+1}/>)
+}
+
+function cardCount(deck) {
+  if(deck === "") return null
+
+  return deck.cards.length
 }
 
 export default DeckHeader
