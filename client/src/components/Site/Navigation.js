@@ -48,7 +48,7 @@ class Navigation extends PureComponent {
           </section>
 
           <ul className="navbar-ul">
-            <NavItem name="Login" path="/login" className={this.liClassName} pageURI={this.pageURI}/>
+            <NavItem name="Login" path="/login" className={liClassName} pageURI={this.pageURI}/>
             <NavItem name="Signup" path="/signup" className='signup-button' pageURI={this.pageURI}/>
           </ul>
 

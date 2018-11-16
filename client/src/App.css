@@ -226,9 +226,47 @@
   margin: auto;
   height: 25em;
   margin-bottom: 10%;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 7%;
+  text-align: center;
 }
+
+
 
 .card-buttons{
   display:flex;
+  justify-content: center;
+}
+
+.input-form{
+  display:flex;
+  align-items: stretch;
+
+}
+
+.bottom-input{
+  width: 85%;
+  background-color:#EDEDED;
+  border: 1px solid #CAC4C4;
+}
+
+.bottom-submit{
+  width: 15%;
+  background-color: #7BC68F;
+  border: 1px solid #7BC68F;
+  color: #291F2E;
+  height: 100%;
+  padding: .5em;
+  font-size: .75em;
+
+}
+
+.hint{
+  color: #CAC4C4;
+  background-color: white;
+  border: none;
+  width: 10%;
+  margin: 0 auto;
 }
