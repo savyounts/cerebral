@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Decks from './containers/Decks'
+import DeckList from './DeckList'
 
 const Home = () =>{
 return (
@@ -18,7 +18,7 @@ return (
     </div>
   </section>
 
-  <Decks />
+  <DeckList />
 </div>
 )}
 export default Home

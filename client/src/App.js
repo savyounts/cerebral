@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/presentational/Header'
-import Main from './components/containers/Main'
+import Header from './components/Site/Header'
+import Main from './components/Site/Main'
 import {fetchDecks} from './actions/deckActions'
 import {connect} from 'react-redux'
 

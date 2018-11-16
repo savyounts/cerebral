@@ -1,5 +1,5 @@
 import React from 'react'
-import Deck from '../presentational/Deck'
+import Deck from './Deck'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router'
 

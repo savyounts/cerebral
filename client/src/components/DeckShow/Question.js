@@ -1,40 +1,34 @@
 import React from 'react'
+import InputForm from './InputForm'
 
 
 class Question extends React.Component{
   state = {
-    value: ''
+    isHidden: false
   }
 
-  handleChange = e => {
+  clickHint = () =>{
     this.setState({
-      value: e.target.value
+      isHidden: !this.state.isHidden
     })
   }
 
   render(){
     return(
       <div>
-        <section className="card-container">
-
-          <div className="deck-card">
             <h2>Question Here</h2>
-            <button className="hint">HINT</button>
+            {this.state.isHidden && <p>Hint goes here</p>}
+            {!this.state.isHidden && <button className="hint" onClick={this.clickHint}>HINT</button>}
             <section className="card-buttons">
               <button className="back">back</button>
               <p>3/32</p>
               <button className="next">next</button>
             </section>
-          </div>
 
           <footer>
-            <form>
-              <input type="text" value={this.state.value} placeholder="answer here" onChange={this.handleChange} />
-              <input type="submit"/>
-            </form>
+            <InputForm value={this.props.value} onChange={this.props.onChange} onSubmit={this.props.onSubmit} placeholder="answer here..." objectId={this.props.cardId}/>
           </footer>
 
-        </section>
       </div>
     )}
 }
