@@ -2,16 +2,19 @@ import React from 'react'
 import Question from './Question'
 import DeckHeader from './DeckHeader'
 import StartRound from './StartRound'
+import EndRound from './EndRound'
 
 const cards= [{id: 1, question: "1+1", answer: "2", hint: "add" }, {id:2, question: "1+2", answer: "3", hint: "add more" }, {id:3, question: "1+4", answer: "5", hint: "add even more" }]
 const topscores= [{time: 103, score: 2, username: "Savannah"}, {time: 103, score: 2, username: "sav"}, {time: 103, score: 2, username: "sav"}]
 class DeckPage extends React.Component{
   state={
     roundStart: false,
+    roundEnd: false,
     response: "",
     card: cards[0],
     round: null,
     turn: 1
+
   }
 
   handleChange = e => {
@@ -40,6 +43,7 @@ class DeckPage extends React.Component{
   endGame = () =>{
     this.setState({
       roundStart: false,
+      roundEnd: true,
       round:null,
       response: '',
       card: cards[0],
@@ -79,8 +83,9 @@ class DeckPage extends React.Component{
         <main className='deck-body'>
           <section className="card-container">
 
-              {!this.state.roundStart && <StartRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} deckId={this.props.match.params.id} />}
+              {(!this.state.roundStart && !this.state.roundEnd) && <StartRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} deckId={this.props.match.params.id} />}
               {this.state.roundStart && <Question value={this.state.response} onChange={this.handleChange} onSubmit={this.answerSubmit} card={this.state.card} turn={this.state.turn} total="3*"/>}
+              {(!this.state.roundStart && this.state.roundEnd) && <EndRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} deckId={this.props.match.params.id} />}
 
           </section>
         </main>

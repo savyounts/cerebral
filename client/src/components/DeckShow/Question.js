@@ -28,9 +28,7 @@ class Question extends React.Component{
             {!this.state.isHidden && <button className="hint" onClick={this.clickHint}>HINT</button>}
 
             <section className="card-buttons">
-              <button className="back">back</button>
               <p>{this.props.turn}/{this.props.total}</p>
-              <button className="next">next</button>
             </section>
 
           <footer>
