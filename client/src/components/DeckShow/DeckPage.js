@@ -11,7 +11,7 @@ class DeckPage extends React.Component{
     roundStart: false,
     roundEnd: false,
     response: "",
-    card: cards[0],
+    card: '',
     round: null,
     turn: 1,
     deck: ''
@@ -28,7 +28,8 @@ class DeckPage extends React.Component{
     e.preventDefault()
     this.setState({
       roundStart: true,
-      response: ''
+      response: '',
+      card: this.state.deck.cards[0]
     })
   }
 
@@ -47,7 +48,7 @@ class DeckPage extends React.Component{
       roundEnd: true,
       round:null,
       response: '',
-      card: cards[0],
+      card: this.state.deck.cards[0],
       turn: 1
     })
   }
@@ -55,14 +56,14 @@ class DeckPage extends React.Component{
   nextTurn = () =>{
     this.setState({
       response: '',
-      card: cards[this.state.turn],
+      card: this.state.deck.cards[this.state.turn],
       turn: this.state.turn + 1
     })
   }
 
   answerSubmit = () => {
     this.createGuess()
-    this.state.turn === (cards.length) ? this.endGame() : this.nextTurn()
+    this.state.turn === (this.state.deck.cards.length) ? this.endGame() : this.nextTurn()
     console.log(this.state)
   }
 
@@ -86,7 +87,7 @@ class DeckPage extends React.Component{
           <section className="card-container">
 
               {(!this.state.roundStart && !this.state.roundEnd) && <StartRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} deckId={this.props.match.params.id} />}
-              {this.state.roundStart && <Question value={this.state.response} onChange={this.handleChange} onSubmit={this.answerSubmit} card={this.state.card} turn={this.state.turn} total="3*"/>}
+              {this.state.roundStart && <Question value={this.state.response} onChange={this.handleChange} onSubmit={this.answerSubmit} card={this.state.card} turn={this.state.turn} total={this.state.deck.cards.length}/>}
               {(!this.state.roundStart && this.state.roundEnd) && <EndRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} deckId={this.props.match.params.id} />}
 
           </section>
