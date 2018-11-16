@@ -22,13 +22,13 @@ const store = createStore(decksReducer,
 // store.dispatch(loadDecks()) use with api module
 
 ReactDOM.render((
-  <BrowserRouter>
-    <React.Fragment>
+
+
       <Provider store={store}>
         <App />
       </Provider>
-    </React.Fragment>
-  </BrowserRouter>
+  
+
 ), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

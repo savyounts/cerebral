@@ -32,7 +32,7 @@ class Question extends React.Component{
             </section>
 
           <footer>
-            <InputForm value={this.props.value} onChange={this.props.onChange} onSubmit={this.handleSubmit} placeholder="answer here..." objectId={this.props.cardId} button="answer"/>
+            <InputForm value={this.props.value} onChange={this.props.onChange} onSubmit={this.handleSubmit} placeholder="answer here..." objectId={this.props.card.id} button="answer"/>
           </footer>
 
       </React.Fragment>

@@ -3,16 +3,19 @@ import Question from './Question'
 import DeckHeader from './DeckHeader'
 import StartRound from './StartRound'
 import EndRound from './EndRound'
+import {connect} from 'react-redux'
+import { createRound } from './roundActions'
+import { createGuess } from './guessActions'
 
-const cards= [{id: 1, question: "1+1", answer: "2", hint: "add" }, {id:2, question: "1+2", answer: "3", hint: "add more" }, {id:3, question: "1+4", answer: "5", hint: "add even more" }]
-const topscores= [{time: 103, score: 2, username: "Savannah"}, {time: 103, score: 2, username: "sav"}, {time: 103, score: 2, username: "sav"}]
+import Axios from 'axios';
+
+
 class DeckPage extends React.Component{
   state={
     roundStart: false,
     roundEnd: false,
     response: "",
     card: '',
-    round: null,
     turn: 1,
     deck: ''
 
@@ -26,6 +29,7 @@ class DeckPage extends React.Component{
 
   startRound = e =>{
     e.preventDefault()
+    this.props.createRound(this.state)
     this.setState({
       roundStart: true,
       response: '',
@@ -33,14 +37,14 @@ class DeckPage extends React.Component{
     })
   }
 
-  createGuess = () => {
-  //   fetch('the server URL', {
-  //   method: "POST",
-  //   headers: 'Content-Type: application/json',
-  //   body: JSON.stringify(this.state)
-  // })
-  console.log(`im guess for turn ${this.state.turn} out of ${cards.length}`)
-}
+//   createGuess = () => {
+//     Axios.post('http://localhost:3001/api/guesses', {response: this.state.response, round_id: this.props.round.id, card_id: this.state.card.id})
+//   // fetch('http://localhost:3001/api/guesses', {
+//   //   method: "POST",
+//   //   headers: 'Content-Type: application/json',
+//   //   body: JSON.stringify({response: this.state.response, card_id: this.state.card.id, })
+//   // })
+// }
 
   endGame = () =>{
     this.setState({
@@ -62,7 +66,7 @@ class DeckPage extends React.Component{
   }
 
   answerSubmit = () => {
-    this.createGuess()
+    this.props.createGuess(this.state, this.props.round)
     this.state.turn === (this.state.deck.cards.length) ? this.endGame() : this.nextTurn()
     console.log(this.state)
   }
@@ -74,20 +78,21 @@ class DeckPage extends React.Component{
   }
 
   render(){
-    console.log(this.state.deck)
     return(
       <div>
         <div className="overlay"></div>
 
         <header className="deck-page-header">
-          <DeckHeader topscores={topscores} deck={this.state.deck}/>
+          <DeckHeader deck={this.state.deck}/>
         </header>
 
         <main className='deck-body'>
           <section className="card-container">
 
               {(!this.state.roundStart && !this.state.roundEnd) && <StartRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} deckId={this.props.match.params.id} />}
+
               {this.state.roundStart && <Question value={this.state.response} onChange={this.handleChange} onSubmit={this.answerSubmit} card={this.state.card} turn={this.state.turn} total={this.state.deck.cards.length}/>}
+
               {(!this.state.roundStart && this.state.roundEnd) && <EndRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} deckId={this.props.match.params.id} />}
 
           </section>
@@ -96,4 +101,8 @@ class DeckPage extends React.Component{
       </div>
     )}
 }
-export default DeckPage
+
+const mapStateToProps = state =>({
+    round: state.round
+})
+export default connect(mapStateToProps, { createRound, createGuess })(DeckPage)
