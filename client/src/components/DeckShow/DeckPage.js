@@ -13,7 +13,8 @@ class DeckPage extends React.Component{
     response: "",
     card: cards[0],
     round: null,
-    turn: 1
+    turn: 1,
+    deck: ''
 
   }
 
@@ -68,16 +69,17 @@ class DeckPage extends React.Component{
   componentDidMount(){
     fetch(`http://localhost:3001/api/decks/${this.props.match.params.id}`)
     .then(response => response.json())
-    .then(deck => this.setState({deck: deck}) )
+    .then(deck => this.setState({deck}))
   }
 
   render(){
+    console.log(this.state.deck)
     return(
       <div>
         <div className="overlay"></div>
 
         <header className="deck-page-header">
-          <DeckHeader topscores={topscores} deck={this.props.match.params.id}/>
+          <DeckHeader topscores={topscores} deck={this.state.deck}/>
         </header>
 
         <main className='deck-body'>

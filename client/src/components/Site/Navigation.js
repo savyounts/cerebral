@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import NavItem from './NavItem'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Input = styled.input`
   padding: 0.5em;
@@ -30,7 +31,7 @@ class Navigation extends PureComponent {
     return(
 
       <nav className="navbar navbar-expand-lg navbar-custom">
-        <a className="navbar-custom-brand" href="/">Cerebral</a>
+         <Link className="navbar-custom-brand" to="/">Cerebral</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

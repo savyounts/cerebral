@@ -1,11 +1,11 @@
 import React from 'react'
 import TopScore from './TopScore'
 
-const DeckHeader = ({name, topscores}) => (
+const DeckHeader = ({deck, topscores}) => (
   <React.Fragment>
     <section className="top-info">
-      <span>{name} terms</span> <span className="username">HighScore:59</span>
-      <h1>{name}</h1>
+      <span>{deck.id} terms</span> <span className="username">Highscore: {deck.highscore}</span>
+      <h1>{deck.name}</h1>
       <button className="copy-deck">copy</button>
       <button className="save-deck">save</button>
     </section>
