@@ -8,7 +8,7 @@ class EndRound extends React.Component{
     return(
       <React.Fragment>
 
-            <h2>Good Job Username</h2>
+            <h2>Good Job {this.props.round.username}</h2>
             <p>You scored {this.props.round.score} out of {this.props.total} right</p>
             <p>Enter your username to play again</p>
 

@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from "../Home/Home"
 import DeckPage from "../DeckShow/DeckPage"
 import Footer from './Footer'
-import CreateDeck from '../CreateDeck'
+import CreateDeck from '../CreateDeck/CreateDeck'
 import NotFound from './NotFound'
 import Header from './Header'
 

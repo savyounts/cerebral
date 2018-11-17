@@ -1,16 +1,23 @@
 import React from 'react'
-import CardForm from './CreateDeck/CardForm'
+import CardForm from './CardForm'
+import DeckForm from './DeckForm'
 
 class CreateDeck extends React.Component {
   state = {
     name: '',
+    description: '',
     cards: []
   }
 
   handleChange = e =>{
-    this.setState({
-      name: e.target.value
-    })
+    console.log({[e.target.name]: e.target.value})
+    // this.setState({
+    //   [e.target.name]: e.target.value
+    // })
+  }
+
+  handleSubmit = values => {
+    console.log(values)
   }
 
   handleClick = e => {
@@ -29,15 +36,9 @@ class CreateDeck extends React.Component {
   return(
     <React.Fragment>
     <h1>Make a new deck</h1>
-    <form>
-      <input type="text" value={this.state.name} onChange={this.handleChange} placeholder="Name Your Deck"/>
-      <br></br>
-      {this.state.cards}
-      {this.renderCards()}
-      <br></br>
-      <input type="submit" value="create deck"/>
-    </form>
-    <button onClick={this.handleClick}> + ADD CARD </button>
+
+    <DeckForm onSubmit={this.handleSubmit}/>
+  {/*  <button onClick={this.handleClick}> + ADD CARD </button>*/}
   </React.Fragment>
   )}
 }
