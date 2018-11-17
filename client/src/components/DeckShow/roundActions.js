@@ -9,3 +9,6 @@ export const createRound = (state) => {
       });
   };
 };
+
+
+export const updateScore = (guess, card) => ({type: "UPDATE_SCORE", guess:guess, card:card})

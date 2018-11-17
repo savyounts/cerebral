@@ -9,6 +9,10 @@ export default function deckReducer(state = {loading:false, decks: [], round: ''
       case 'CREATE_ROUND_SUCCESS':
         return {...state, round:action.payload }
 
+      case 'UPDATE_SCORE':
+          const num = (action.guess === action.card.answer) ? 1 : 0
+          return {...state, round:{...state.round, score:state.round.score + num }}
+
       case 'CREATE_GUESS_SUCCESS':
         return {...state, guess:action.payload }
 

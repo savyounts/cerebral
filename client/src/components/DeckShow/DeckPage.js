@@ -4,7 +4,7 @@ import DeckHeader from './DeckHeader'
 import StartRound from './StartRound'
 import EndRound from './EndRound'
 import {connect} from 'react-redux'
-import { createRound } from './roundActions'
+import { createRound, updateScore } from './roundActions'
 import { createGuess } from './guessActions'
 
 import Axios from 'axios';
@@ -68,9 +68,12 @@ class DeckPage extends React.Component{
 
   answerSubmit = () => {
     console.log(this.state)
-    console.log(this.props.round)
+    console.log(this.state.card)
+    console.log(this.state.response)
     this.props.createGuess(this.state, this.props.round)
+    this.props.updateScore(this.state.response, this.state.card)
     this.state.turn === (this.state.deck.cards.length) ? this.endGame() : this.nextTurn()
+
 
   }
 
@@ -106,6 +109,7 @@ class DeckPage extends React.Component{
 }
 
 const mapStateToProps = state =>({
-    round: state.round
+    round: state.round,
+    guess: state.guess
 })
-export default connect(mapStateToProps, { createRound, createGuess })(DeckPage)
+export default connect(mapStateToProps, { createRound, createGuess, updateScore })(DeckPage)
