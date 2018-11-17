@@ -7,7 +7,6 @@ export default function deckReducer(state = {loading:false, decks: [], round: ''
       return {...state, decks: action.payload, loading:false}
 
       case 'CREATE_ROUND_SUCCESS':
-      console.log(`im from current round ${{...state, round:action.payload }}`)
         return {...state, round:action.payload }
 
       case 'CREATE_GUESS_SUCCESS':

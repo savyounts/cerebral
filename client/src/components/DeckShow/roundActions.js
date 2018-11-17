@@ -9,17 +9,3 @@ export const createRound = (state) => {
       });
   };
 };
-
-
-// export function createRound(state){
-//   return (dispatch) => {
-//     dispatch({ type: 'CREATE_ROUND' })
-//       return fetch('http://localhost:3001/api/rounds', {
-//           method: "POST",
-//           headers: 'Content-Type: application/json',
-//           body: JSON.stringify({username: state.response, deck_id: state.deck.id})
-//           .then(response => response.json())
-//           .then(round =>  dispatch({type: 'CURRENT_ROUND', payload: round}))
-//         })
-//       }
-//     }

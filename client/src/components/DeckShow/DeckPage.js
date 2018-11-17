@@ -28,6 +28,7 @@ class DeckPage extends React.Component{
   }
 
   startRound = e =>{
+    console.log(`username: ${this.state.response}`)
     e.preventDefault()
     this.props.createRound(this.state)
     this.setState({
@@ -66,9 +67,11 @@ class DeckPage extends React.Component{
   }
 
   answerSubmit = () => {
+    console.log(this.state)
+    console.log(this.props.round)
     this.props.createGuess(this.state, this.props.round)
     this.state.turn === (this.state.deck.cards.length) ? this.endGame() : this.nextTurn()
-    console.log(this.state)
+
   }
 
   componentDidMount(){
