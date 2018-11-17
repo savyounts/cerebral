@@ -46,6 +46,6 @@ class GuessesController < ApiController
 
     # Only allow a trusted parameter "white list" through.
     def guess_params
-      params.require(:guess).permit(:response, :card_id)
+      params.require(:guess).permit(:response, :card_id, :round_id)
     end
 end
