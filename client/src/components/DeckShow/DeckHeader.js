@@ -19,7 +19,7 @@ const DeckHeader = ({deck, topscores}) =>
 function deb(deck) {
   if(deck === "") return null
 
-  return deck.topscores.map((round, index) => <TopScore key={index} round={round} num={index+1}/>)
+  return deck.topscores.map((round, index) => <TopScore key={index} round={round} num={index+1} cards={cardCount(deck)}/>)
 }
 
 function cardCount(deck) {
