@@ -12,6 +12,6 @@ const TopScore = ({round, num, cards}) => (
 
 )
 
-const percentCorrect = (num, den) => (parseInt(num)/den)*100
+const percentCorrect = (num, den) => Math.floor((parseInt(num)/den)*100)
 
 export default TopScore
