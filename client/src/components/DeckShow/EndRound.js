@@ -9,7 +9,7 @@ class EndRound extends React.Component{
       <React.Fragment>
 
             <h2>Good Job Username</h2>
-            <p>You scored __ out of __ right</p>
+            <p>You scored {this.props.round.score} out of {this.props.total} right</p>
             <p>Enter your username to play again</p>
 
 

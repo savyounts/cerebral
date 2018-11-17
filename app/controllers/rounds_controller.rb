@@ -47,6 +47,6 @@ class RoundsController < ApiController
 
     # Only allow a trusted parameter "white list" through.
     def round_params
-      params.require(:round).permit(:deck_id, :user_id, :score)
+      params.require(:round).permit(:deck_id, :username, :score)
     end
 end

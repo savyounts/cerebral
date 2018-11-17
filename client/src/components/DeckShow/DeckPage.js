@@ -96,7 +96,7 @@ class DeckPage extends React.Component{
 
               {this.state.roundStart && <Question value={this.state.response} onChange={this.handleChange} onSubmit={this.answerSubmit} card={this.state.card} turn={this.state.turn} total={this.state.deck.cards.length}/>}
 
-              {(!this.state.roundStart && this.state.roundEnd) && <EndRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} deckId={this.props.match.params.id} />}
+              {(!this.state.roundStart && this.state.roundEnd) && <EndRound value={this.state.response} onSubmit={this.startRound} onChange={this.handleChange} round={this.props.round} total={this.state.deck.cards.length}/>}
 
           </section>
         </main>
