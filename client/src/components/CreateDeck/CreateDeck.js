@@ -2,13 +2,34 @@ import React from 'react'
 import CardForm from './CardForm'
 import DeckForm from './DeckForm'
 import { createDeck } from '../../actions/deckActions'
+import { createCard } from '../../actions/cardActions'
+
 import { connect } from 'react-redux'
 
 class CreateDeck extends React.Component {
   state = {
     name: '',
     description: '',
-    deck: ''
+    deckId: '',
+    cardCount: 1,
+    cards: []
+  }
+
+  cardState = () => ({
+    ['question' + this.state.cardCount]: '',
+    ['answer' + this.state.cardCount]: '',
+    ['hint' + this.state.cardCount]: '',
+    deckId: this.state.deckId
+  })
+
+  cardChange = e =>{
+   this.setState({
+      ...this.state,
+      cards:[
+        ...this.state.cards,
+        ([e.target.name]: e.target.value)
+      ]
+    })
   }
 
   handleChange = e =>{
@@ -18,17 +39,22 @@ class CreateDeck extends React.Component {
   }
 
   findDeck = () => {
-    console.log(this.props.decks.last)
-    // this.setState({
-    //   deck: this.props.decks.last.id
-    // })
+    const decks = this.props.decks
+    this.setState({
+      deckId: decks[decks.length -1].id
+    })
   }
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log(this.state)
     this.props.createDeck(this.state)
     this.findDeck()
+  }
+
+  submitCards = e =>{
+    e.preventDefault()
+    this.state.cards.forEach(card =>
+     this.props.createCard(card))
   }
 
   handleClick = e => {
@@ -38,7 +64,7 @@ class CreateDeck extends React.Component {
   }
 
   renderCards(){
-    return this.state.cards.map((cards, index) => {
+    return this.state.cards.forEach((cards, index) => {
       return <CardForm key={index} />;
    });
   }
@@ -47,7 +73,8 @@ class CreateDeck extends React.Component {
   return(
     <React.Fragment>
 
-    {!this.state.deck ? <DeckForm submit={this.handleSubmit} values={this.state} change={this.handleChange}/> : <CardForm />}
+    {!this.state.deckId ? <DeckForm submit={this.handleSubmit} values={this.state} change={this.handleChange}/> :
+    <CardForm deckId ={this.state.deckId} cardCount={this.state.cardCount} change={this.cardChange} submit={this.submitCards}/>}
 
   </React.Fragment>
   )}
@@ -58,4 +85,4 @@ const mapStateToProps = state =>({
   decks: state.decks
 })
 
-export default connect(mapStateToProps, { createDeck })(CreateDeck)
+export default connect(mapStateToProps, { createDeck, createCard })(CreateDeck)

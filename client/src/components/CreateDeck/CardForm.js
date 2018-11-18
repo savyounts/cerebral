@@ -2,10 +2,15 @@ import React from 'react'
 
 class CardForm extends React.Component{
   state ={
-    question: '',
-    answer: '',
-    hint: ''
+    cardCount: 1,
+    cards: []
   }
+  //
+  // cardState = () => ({
+  //   ['question' + this.state.cardCount]: '',
+  //   ['answer' + this.state.cardCount]: '',
+  //   ['hint' + this.state.cardCount]: ''
+  // })
 
   handleChange = e =>{
     this.setState({
@@ -22,11 +27,14 @@ class CardForm extends React.Component{
   render(){
   return(
     <React.Fragment>
-      <div onSubmit={this.handleSubmit}>
-        <input type="text" name="question" value={this.state.question} onChange={this.handleChange}/>
-        <input type="text" name="answer" value={this.state.answer} onChange={this.handleChange}/>
-        <input type="text" name="hint" value={this.state.hint} onChange={this.handleChange}/>
-      </div>
+      <form onSubmit={this.props.submit}>
+        <input type="hidden" value={this.props.deckId} />
+        <input type="text" name={'question' + this.props.cardCount} value={this.state.question} onChange={this.props.change}/>
+        <input type="text" name={'answer' + this.props.cardCount} value={this.state.answer} onChange={this.handleChange}/>
+        <input type="text" name={'hint' + this.props.cardCount} value={this.state.hint} onChange={this.handleChange}/>
+        <input type="submit" />
+
+    </form>
 
       <button onClick={this.handleClick}> + ADD CARD </button>
     </React.Fragment>
