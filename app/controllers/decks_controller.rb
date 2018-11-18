@@ -45,6 +45,6 @@ class DecksController < ApiController
 
     # Only allow a trusted parameter "white list" through.
     def deck_params
-      params.require(:deck).permit(:name, :description, :tags, :user_id, :highscore, :edit_password)
+      params.require(:deck).permit(:name, :description, :highscore, :edit_password)
     end
 end

@@ -6,6 +6,9 @@ export default function deckReducer(state = {loading:false, decks: [], round: ''
     case 'FETCH_DECKS':
       return {...state, decks: action.payload, loading:false}
 
+    case 'CREATE_DECK_SUCCESS':
+      return {...state, decks:[...state.decks, action.payload] }
+
       case 'CREATE_ROUND_SUCCESS':
         return {...state, round:action.payload }
 

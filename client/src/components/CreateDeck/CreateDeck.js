@@ -1,23 +1,34 @@
 import React from 'react'
 import CardForm from './CardForm'
 import DeckForm from './DeckForm'
+import { createDeck } from '../../actions/deckActions'
+import { connect } from 'react-redux'
 
 class CreateDeck extends React.Component {
   state = {
     name: '',
     description: '',
-    cards: []
+    deck: ''
   }
 
   handleChange = e =>{
-    console.log({[e.target.name]: e.target.value})
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  findDeck = () => {
+    console.log(this.props.decks.last)
     // this.setState({
-    //   [e.target.name]: e.target.value
+    //   deck: this.props.decks.last.id
     // })
   }
 
-  handleSubmit = values => {
-    console.log(values)
+  handleSubmit = e => {
+    e.preventDefault()
+    console.log(this.state)
+    this.props.createDeck(this.state)
+    this.findDeck()
   }
 
   handleClick = e => {
@@ -35,13 +46,16 @@ class CreateDeck extends React.Component {
   render(){
   return(
     <React.Fragment>
-    <h1>Make a new deck</h1>
 
-    <DeckForm onSubmit={this.handleSubmit}/>
-  {/*  <button onClick={this.handleClick}> + ADD CARD </button>*/}
+    {!this.state.deck ? <DeckForm submit={this.handleSubmit} values={this.state} change={this.handleChange}/> : <CardForm />}
+
   </React.Fragment>
   )}
 }
-// {this.state.addCard ? <CardForm /> : <React.Fragment></React.Fragment>}
 
-export default CreateDeck
+
+const mapStateToProps = state =>({
+  decks: state.decks
+})
+
+export default connect(mapStateToProps, { createDeck })(CreateDeck)

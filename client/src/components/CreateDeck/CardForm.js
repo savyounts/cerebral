@@ -27,6 +27,8 @@ class CardForm extends React.Component{
         <input type="text" name="answer" value={this.state.answer} onChange={this.handleChange}/>
         <input type="text" name="hint" value={this.state.hint} onChange={this.handleChange}/>
       </div>
+
+      <button onClick={this.handleClick}> + ADD CARD </button>
     </React.Fragment>
     )}
   }
