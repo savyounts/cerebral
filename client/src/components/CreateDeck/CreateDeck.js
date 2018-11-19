@@ -26,8 +26,7 @@ class CreateDeck extends React.Component {
    this.setState({
       ...this.state,
       cards:[
-        ...this.state.cards,
-        ([e.target.name]: e.target.value)
+        ...this.state.cards, (this.state.cards[this.state.cardCount -1][e.target.name] : e.target.value)
       ]
     })
   }
@@ -53,8 +52,9 @@ class CreateDeck extends React.Component {
 
   submitCards = e =>{
     e.preventDefault()
-    this.state.cards.forEach(card =>
-     this.props.createCard(card))
+    console.log(this.state.cards)
+    // this.state.cards.forEach(card =>
+    //  this.props.createCard(card))
   }
 
   handleClick = e => {

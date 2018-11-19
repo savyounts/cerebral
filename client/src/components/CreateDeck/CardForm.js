@@ -29,12 +29,12 @@ class CardForm extends React.Component{
     <React.Fragment>
       <form onSubmit={this.props.submit}>
         <input type="hidden" value={this.props.deckId} />
-        <input type="text" name={'question' + this.props.cardCount} value={this.state.question} onChange={this.props.change}/>
-        <input type="text" name={'answer' + this.props.cardCount} value={this.state.answer} onChange={this.handleChange}/>
-        <input type="text" name={'hint' + this.props.cardCount} value={this.state.hint} onChange={this.handleChange}/>
+        <input type="text" name={'question' + this.props.cardCount} value={this.state['question' + this.props.cardCount]} onChange={this.props.change}/>
+        <input type="text" name={'answer' + this.props.cardCount} value={this.state['answer' + this.props.cardCount]} onChange={this.props.change}/>
+        <input type="text" name={'hint' + this.props.cardCount} value={this.state['hint' + this.props.cardCount]} onChange={this.props.change}/>
         <input type="submit" />
 
-    </form>
+      </form>
 
       <button onClick={this.handleClick}> + ADD CARD </button>
     </React.Fragment>

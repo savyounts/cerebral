@@ -8,6 +8,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-form": "^3.5.6",
+    "react-form-uncontrolled": "^0.2.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.0.6-next.c662dfb0",
