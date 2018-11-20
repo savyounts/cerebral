@@ -15,9 +15,10 @@ class NewPage extends React.Component {
   }
 
   addCard = (e) =>{
-    this.setState((prevState)=> ({
-      cards: [...prevState.cards, {question: '', answer:'', hint:''}]
-    }))
+    e.preventDefault()
+    this.setState({
+      cards: [...this.state.cards, {question: '', answer:'', hint:''}]
+    })
   }
 
   handleChange = e =>{
@@ -29,11 +30,6 @@ class NewPage extends React.Component {
       this.setState({ [e.target.name]: e.target.value })
     }
   }
-
- //  findDeck = (decks) => {
- //    console.log('im trying to find hte new deck')
- //   return decks[decks.length-1].id
- // }
 
  findDeck = () => {
    fetch(`http://localhost:3001/api/decks`)
@@ -76,8 +72,6 @@ class NewPage extends React.Component {
   )}
 }
 
-// {!this.state.deckId ? <DeckForm submit={this.handleSubmit} values={this.state} change={this.handleChange}/> :
-// <CardForm deckId ={this.state.deckId} cardCount={this.state.cardCount} change={this.cardChange} submit={this.submitCards}/>}
 const mapStateToProps = state =>({
   decks: state.decks
 })
