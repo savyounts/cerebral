@@ -6,8 +6,7 @@ const DeckHeader = ({deck, topscores}) =>
     <section className="top-info">
       <span>{ cardCount(deck) } terms</span> <span className="username">Highscore: {deck.highscore}</span>
       <h1>{deck.name}</h1>
-       {/*<button className="copy-deck">copy</button>
-      <button className="save-deck">save</button>*/}
+       <h6>{deck.description}</h6>
     </section>
 
     <section className="highscores">
