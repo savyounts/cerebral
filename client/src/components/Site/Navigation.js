@@ -38,20 +38,16 @@ class Navigation extends PureComponent {
 
         <div className="collapse navbar-collapse full-nav" id="navbarSupportedContent">
           <section className="navbar-ul">
-            <form className="form-inline my-2 my-lg-0">
-              <Input type="search" placeholder="Search" onChange={this.handleChange}/>
-              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
 
             <div className="verticalLine">
               <NavItem name="create" path="/decks/new" className="navbar-ul" pageURI={this.pageURI}/>
             </div>
           </section>
 
-          <ul className="navbar-ul">
+          {/*<ul className="navbar-ul">
             <NavItem name="Login" path="/login" className={liClassName} pageURI={this.pageURI}/>
             <NavItem name="Signup" path="/signup" className='signup-button' pageURI={this.pageURI}/>
-          </ul>
+          </ul>*/}
 
         </div>
       </nav>
