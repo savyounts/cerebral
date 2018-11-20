@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from "../Home/Home"
 import DeckPage from "../DeckShow/DeckPage"
 import Footer from './Footer'
-import CreateDeck from '../CreateDeck/CreateDeck'
+import NewPage from '../CreateDeck/NewPage'
 import NotFound from './NotFound'
 import Header from './Header'
 
@@ -15,7 +15,7 @@ const Main = () => (
       <Header />
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/decks/new' component={CreateDeck}/>
+        <Route path='/decks/new' component={NewPage}/>
         <Route path='/decks/:id' render={routerProps => <DeckPage {...routerProps}/> }/>
         <Route component={NotFound} />
       </Switch>

@@ -11,10 +11,10 @@ export function fetchDecks(){
 
 
 
-export const createDeck = (state) => {
+export const createDeck = (deckInfo) => {
   return (dispatch) => {
     return Axios.post('http://localhost:3001/api/decks',
-    {name: state.name, description: state.description})
+    deckInfo)
       .then(response => { dispatch({type: 'CREATE_DECK_SUCCESS', payload: response.data}) })
       .catch(error => {
         throw(error);

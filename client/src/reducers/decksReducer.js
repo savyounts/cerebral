@@ -19,7 +19,6 @@ export default function deckReducer(state = {loading:false, decks: [], round: ''
       case 'CREATE_GUESS_SUCCESS':
         return {...state, guess:action.payload }
 
-
     default:
         return state
   }
