@@ -1,23 +1,22 @@
-export default function deckReducer(state = {loading:false, decks: [], round: '', guess:''}, action){
+export default function deckReducer(state = [], action){
   switch(action.type){
     case 'LOADING_DECKS':
-      return {...state, loading:true}
+      return [...state]
 
     case 'FETCH_DECKS':
-      return {...state, decks: action.payload, loading:false}
+      return action.payload
 
     case 'CREATE_DECK_SUCCESS':
-      return {...state, decks:[...state.decks, action.payload] }
+      return [...state, action.payload]
 
-      case 'CREATE_ROUND_SUCCESS':
-        return {...state, round:action.payload }
+    case 'UPDATE_DECK_HIGHSCORE':
 
-      case 'UPDATE_SCORE':
-          const num = (action.guess === action.card.answer) ? 1 : 0
-          return {...state, round:{...state.round, score:state.round.score + num }}
-
-      case 'CREATE_GUESS_SUCCESS':
-        return {...state, guess:action.payload }
+      const deckIndex = state.findIndex(deck => deck.id === action.deckId)
+      if(deckIndex){
+        console.log("im higher")
+        return [...state.slice(0,deckIndex), state[deckIndex].highscore = action.score, ...state.slice(deckIndex +1) ]
+      }
+      return state
 
     default:
         return state

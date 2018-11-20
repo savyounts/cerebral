@@ -5,32 +5,40 @@ const CardInputs = (props) =>{
     props.cards.map((val, idx)=>{
       let qId = `q-${idx}`, aId=`a-${idx}`, hId=`h-${idx}`
       return(
-        <div key={idx}>
-          <input
-            type="text"
-            name={qId}
-            data-id={idx}
-            id={qId}
-            className="question"
-            placeholder="Question"
-          />
-          <input
-            type="text"
-            name={aId}
-            data-id={idx}
-            id={aId}
-            className="answer"
-            placeholder="Answer"
-          />
-          <input
-            type="text"
-            name={hId}
-            data-id={idx}
-            id={hId}
-            className="hint"
-            placeholder="hint"
-          />
-
+        <div className="cardInput" key={idx}>
+          <div className="rightBorder">
+            <input
+              type="text"
+              name={qId}
+              data-id={idx}
+              id={qId}
+              className="question"
+              autocomplete="off"
+            />
+            <label htmlFor="question">Question</label>
+          </div>
+          <div className="rightBorder">
+            <input
+              type="text"
+              name={aId}
+              data-id={idx}
+              id={aId}
+              className="answer"
+              autocomplete="off"
+            />
+            <label htmlFor="answer">Answer</label>
+          </div>
+          <div>
+            <input
+              type="text"
+              name={hId}
+              data-id={idx}
+              id={hId}
+              className="hint"
+              autocomplete="off"
+            />
+            <label htmlFor="hint">Hint</label>
+          </div>
         </div>
       )
     })

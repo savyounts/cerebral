@@ -8,73 +8,6 @@ import { connect } from 'react-redux'
 
 class NewPage extends React.Component {
 
-
-  // state = {
-  //   name: '',
-  //   description: '',
-  //   deckId: '',
-  //   cardCount: 1,
-  //   cards: []
-  // }
-  //
-  // cardState = () => ({
-  //   ['question' + this.state.cardCount]: '',
-  //   ['answer' + this.state.cardCount]: '',
-  //   ['hint' + this.state.cardCount]: '',
-  //   deckId: this.state.deckId
-  // })
-  //
-  //
-  // submitCards = e =>{
-  //   e.preventDefault()
-  //   console.log(this.cardState())
-  //
-  //   // this.state.cards.forEach(card =>
-  //   //  this.props.createCard(card))
-  // }
-  //
-  // cardChange = e =>{
-  //  this.setState({
-  //     ...this.state,
-  //     cards:[
-  //       ...this.state.cards, {[e.target.name] : e.target.value}
-  //     ]
-  //   })
-  // }
-  //
-  // handleChange = e =>{
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
-  //
-  // findDeck = () => {
-  //   const decks = this.props.decks
-  //   this.setState({
-  //     deckId: decks[decks.length -1].id
-  //   })
-  // }
-  //
-  // handleSubmit = e => {
-  //   e.preventDefault()
-  //   this.props.createDeck(this.state)
-  //   this.findDeck()
-  // }
-  //
-  //
-  //
-  // handleClick = e => {
-  //   let newCard = <CardForm />
-  //   let cards = this.state.cards.unshift(newCard);
-  //   this.setState({cards});
-  // }
-  //
-  // renderCards(){
-  //   return this.state.cards.forEach((cards, index) => {
-  //     return <CardForm key={index} />;
-  //  });
-  // }
-
   state={
     cards: [{question: '', answer:'', hint:''}],
     name: '',
@@ -98,7 +31,7 @@ class NewPage extends React.Component {
   }
 
   findDeck = (decks) => {
-   return decks[decks.length - 1].id
+   return decks[decks.length-1].id
  }
 
  resetState = () => {
@@ -112,7 +45,7 @@ class NewPage extends React.Component {
   handleSubmit = e => { e.preventDefault() }
     createCardsAndDeck = e =>{
     this.props.createDeck({name: this.state.name, description: this.state.description})
-    const deckId = this.findDeck(this.props.decks)
+    const deckId = (this.findDeck(this.props.decks)+1)
 
     this.state.cards.forEach(card =>
      this.props.createCard(card, deckId))
@@ -121,15 +54,19 @@ class NewPage extends React.Component {
   render(){
     let {name, description, cards} = this.state
     return(
-      <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" value={name} />
-        <label htmlFor="description">Description</label>
-        <input type="text" name="description" id="description" value={description} />
-        <button onClick={this.addCard}>Add new card</button>
-        <CardInputs cards={cards} />
-        <button type="submit" onClick={this.createCardsAndDeck}>Create Deck</button>
-      </form>
+      <React.Fragment>
+        <div className="overlay"></div>
+        <form className="createNew" onSubmit={this.handleSubmit} onChange={this.handleChange}>
+          <label htmlFor="name">Name</label>
+          <input type="text" className="deckInput" name="name" id="name" value={name} />
+          <label htmlFor="description">Description</label>
+          <textarea type="text"  className="deckInput" name="description" id="description" value={description} />
+
+          <CardInputs cards={cards} />
+          <button className="addCard" onClick={this.addCard}><span>  + ADD CARD  </span></button>
+          <button  className="addCard" type="submit" onClick={this.createCardsAndDeck}><span>CREATE DECK</span></button>
+        </form>
+    </React.Fragment>
 
   )}
 }

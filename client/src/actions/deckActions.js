@@ -9,7 +9,7 @@ export function fetchDecks(){
     }
 }
 
-
+export const updateHighscore = (score, deckId) => ({type: "UPDATE_DECK_HIGHSCORE", deckId, score })
 
 export const createDeck = (deckInfo) => {
   return (dispatch) => {
@@ -21,21 +21,3 @@ export const createDeck = (deckInfo) => {
       });
   };
 };
-
-
-
-// import deckApi from '../api/deckApi'
-// using API module
-// export function loadDecks() {
-//   return function(dispatch) {
-//     return deckApi.getAllDecks().then(decks => {
-//       dispatch(loadDecksSuccess(decks));
-//     }).catch(error => {
-//       throw(error);
-//     });
-//   };
-// }
-//
-// export function loadDecksSuccess(decks){
-//   return {type:'LOAD_DECKS_SUCCESS', decks}
-// }

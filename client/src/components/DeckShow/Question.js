@@ -25,7 +25,7 @@ class Question extends React.Component{
       <React.Fragment>
             <h2>{this.props.card.question}</h2>
             {this.state.isHidden && <p>{this.props.card.hint}</p>}
-            {!this.state.isHidden && <button className="hint" onClick={this.clickHint}>HINT</button>}
+            {!this.state.isHidden && <button className="hintButton" onClick={this.clickHint}>HINT</button>}
 
             <section className="card-buttons">
               <p>{this.props.turn}/{this.props.total}</p>

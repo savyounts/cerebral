@@ -6,7 +6,7 @@ import EndRound from './EndRound'
 import {connect} from 'react-redux'
 import { createRound, updateScore } from './roundActions'
 import { createGuess } from './guessActions'
-
+import { updateHighscore } from '../../actions/deckActions'
 import Axios from 'axios';
 
 
@@ -38,16 +38,12 @@ class DeckPage extends React.Component{
     })
   }
 
-//   createGuess = () => {
-//     Axios.post('http://localhost:3001/api/guesses', {response: this.state.response, round_id: this.props.round.id, card_id: this.state.card.id})
-//   // fetch('http://localhost:3001/api/guesses', {
-//   //   method: "POST",
-//   //   headers: 'Content-Type: application/json',
-//   //   body: JSON.stringify({response: this.state.response, card_id: this.state.card.id, })
-//   // })
-// }
+  compareScores = () =>{
+    if (this.props.round.score >= this.state.deck.highscore){ this.props.updateHighscore(this.props.round.score, this.state.deck.id) }
+  }
 
   endGame = () =>{
+    this.compareScores()
     this.setState({
       roundStart: false,
       roundEnd: true,
@@ -56,6 +52,7 @@ class DeckPage extends React.Component{
       card: this.state.deck.cards[0],
       turn: 1
     })
+
   }
 
   nextTurn = () =>{
@@ -67,14 +64,9 @@ class DeckPage extends React.Component{
   }
 
   answerSubmit = () => {
-    console.log(this.state)
-    console.log(this.state.card)
-    console.log(this.state.response)
     this.props.createGuess(this.state, this.props.round)
     this.props.updateScore(this.state.response, this.state.card)
     this.state.turn === (this.state.deck.cards.length) ? this.endGame() : this.nextTurn()
-
-
   }
 
   componentDidMount(){
@@ -112,4 +104,4 @@ const mapStateToProps = state =>({
     round: state.round,
     guess: state.guess
 })
-export default connect(mapStateToProps, { createRound, createGuess, updateScore })(DeckPage)
+export default connect(mapStateToProps, { createRound, createGuess, updateScore, updateHighscore })(DeckPage)

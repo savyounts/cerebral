@@ -9,16 +9,20 @@ import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import decksReducer from './reducers/decksReducer';
-import { reducer as formReducer } from 'redux-form'
+import cardsReducer from './reducers/cardsReducer'
+import guessReducer from './reducers/guessReducer'
+import roundReducer from './reducers/roundReducer'
 
 
 const rootReducer = combineReducers({
   decks: decksReducer,
-  form: formReducer
+  cards: cardsReducer,
+  round: roundReducer,
+  guess: guessReducer
 })
 
 const middleware = applyMiddleware(thunk);
-const store = createStore(decksReducer,
+const store = createStore(rootReducer,
   compose(
     middleware,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

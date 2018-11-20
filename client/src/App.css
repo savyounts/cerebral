@@ -205,7 +205,8 @@
   height: 100%;
   background-color:#EDEDED;
 
-}.overlay{
+}
+.overlay{
     background-color:#EDEDED;
     position:fixed;
     width:100%;
@@ -243,7 +244,6 @@
 .input-form{
   display:flex;
   align-items: stretch;
-
 }
 
 .bottom-input{
@@ -263,10 +263,76 @@
 
 }
 
-.hint{
+.hintButton{
   color: #CAC4C4;
   background-color: white;
   border: none;
   width: 10%;
   margin: 0 auto;
+}
+
+/*  CREATE DECK PAGE */
+.createNew {
+  display:flex;
+  flex-direction: column;
+  margin: 2em 2em 5em 2em;
+}
+
+.deckInput{
+  display:block;
+  background: white;
+  padding: 1em;
+  height: 4em;
+  border:none;
+  outline:none;
+}
+
+.cardInput {
+  display:flex;
+  justify-content: space-between;
+  margin: 1em 0;
+  background: white;
+  padding: 1em;
+  height: 8em;
+}
+
+.cardInput div {
+  display:flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: flex-end;
+  flex-grow: 1;
+  margin: 0 .5em;
+}
+
+.rightBorder{
+  border-right: 2px solid #CAC4C4;
+  padding-right: .5em;
+}
+
+.createNew input{
+  border:none;
+  border-bottom: 2px solid #CAC4C4;
+
+}
+
+.createNew input:hover, input:focus{
+  outline: none;
+  border-bottom: 2px solid #7BC68F;
+}
+
+.addCard{
+  height:5em;
+  background-color:white;
+  margin: 1em 0;
+  border:none;
+  width: 100%;
+}
+
+.addCard span{
+  display:block;
+  border-bottom:2px solid #7BC68F;
+  padding-bottom:2px;
+  width: 8em;
+  margin: auto;
 }
