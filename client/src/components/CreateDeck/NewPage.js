@@ -1,6 +1,5 @@
 import React from 'react'
 import CardInputs from './CardInputs'
-import DeckForm from './DeckForm'
 import { createDeck } from '../../actions/deckActions'
 import { createCard } from '../../actions/cardActions'
 
@@ -9,7 +8,7 @@ import { connect } from 'react-redux'
 class NewPage extends React.Component {
 
   state={
-    cards: [{question: '', answer:'', hint:''}],
+    cards: [{question: '', answer:'', hint:''}, {question: '', answer:'', hint:''}, {question: '', answer:'', hint:''}, {question: '', answer:'', hint:''}, {question: '', answer:'', hint:''}],
     name: '',
     description: ''
   }
@@ -39,9 +38,9 @@ class NewPage extends React.Component {
 
  resetState = () => {
    this.setState({
+     cards: [],
      name: '',
-     description: '',
-     cards: [{question: '', answer:'', hint:''}]
+     description: ''
    })
  }
 
@@ -52,6 +51,7 @@ class NewPage extends React.Component {
       this.state.cards.forEach(card => this.props.createCard(card, response.id) ))
     .then( () => this.resetState())
 }
+
   render(){
     let {name, description, cards} = this.state
     return(

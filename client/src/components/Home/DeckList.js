@@ -1,7 +1,7 @@
 import React from 'react'
 import Deck from './Deck'
 import { connect } from 'react-redux'
-import { Redirect, withRouter } from 'react-router'
+import { withRouter } from 'react-router'
 
 
 class Decks extends React.Component{

@@ -1,6 +1,4 @@
 import React from 'react'
-import { Redirect, withRouter } from 'react-router'
-
 
 
 class Deck extends React.Component{
@@ -16,9 +14,7 @@ class Deck extends React.Component{
   }
 
   handleClick = e =>{
-    console.log(e.target)
     this.props.history.push(`/decks/${this.props.deck.id}`)
-    // return <Redirect push to="/decks/1" />
   }
 
   render(){

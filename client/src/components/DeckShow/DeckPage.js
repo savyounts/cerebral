@@ -7,7 +7,6 @@ import {connect} from 'react-redux'
 import { createRound, updateScore } from './roundActions'
 import { createGuess } from './guessActions'
 import { updateHighscore } from '../../actions/deckActions'
-import Axios from 'axios';
 
 
 class DeckPage extends React.Component{
@@ -39,8 +38,23 @@ class DeckPage extends React.Component{
   }
 
   compareScores = () =>{
-    if (this.props.round.score >= this.state.deck.highscore){ this.props.updateHighscore(this.props.round.score, this.state.deck.id) }
+    if (this.props.round.score >= this.state.deck.highscore){
+      this.setState({
+        ...this.state,
+        deck: {
+          ...this.state.deck,
+        highscore: this.props.round.score}
+      })
+    }
   }
+
+  // compareTopScores = (deck, round) =>{
+  //   let tops = deck.topscores.map(ts => ts.score)
+  //   deck.topscores.map((ts, idx) => ts.score <= round.score ?
+  //        {...deck.topscores.slice(0,idx), round, ...deck.topscores.slice(idx +1)} : deck.topscores
+  // )}
+
+
 
   endGame = () =>{
     this.compareScores()
