@@ -7,6 +7,7 @@ export default function deckReducer(state = [], action){
       return action.payload
 
     case 'CREATE_DECK_SUCCESS':
+    console.log('now im in redux')
       return [...state, action.payload]
 
     case 'UPDATE_DECK_HIGHSCORE':

@@ -13,7 +13,7 @@ const CardInputs = (props) =>{
               data-id={idx}
               id={qId}
               className="question"
-              autocomplete="off"
+              autoComplete="off"
             />
             <label htmlFor="question">Question</label>
           </div>
@@ -24,7 +24,7 @@ const CardInputs = (props) =>{
               data-id={idx}
               id={aId}
               className="answer"
-              autocomplete="off"
+              autoComplete="off"
             />
             <label htmlFor="answer">Answer</label>
           </div>
@@ -35,7 +35,7 @@ const CardInputs = (props) =>{
               data-id={idx}
               id={hId}
               className="hint"
-              autocomplete="off"
+              autoComplete="off"
             />
             <label htmlFor="hint">Hint</label>
           </div>

@@ -30,8 +30,15 @@ class NewPage extends React.Component {
     }
   }
 
-  findDeck = (decks) => {
-   return decks[decks.length-1].id
+ //  findDeck = (decks) => {
+ //    console.log('im trying to find hte new deck')
+ //   return decks[decks.length-1].id
+ // }
+
+ findDeck = () => {
+   fetch(`http://localhost:3001/api/decks`)
+   .then(response => response.json())
+   .then(decks => console.log(decks[decks.length -1]))
  }
 
  resetState = () => {
@@ -42,14 +49,12 @@ class NewPage extends React.Component {
    })
  }
 
-  handleSubmit = e => { e.preventDefault() }
-    createCardsAndDeck = e =>{
+  handleSubmit = e => {
+    e.preventDefault()
     this.props.createDeck({name: this.state.name, description: this.state.description})
-    const deckId = (this.findDeck(this.props.decks)+1)
-
-    this.state.cards.forEach(card =>
-     this.props.createCard(card, deckId))
-    this.resetState()
+    .then(response =>
+      this.state.cards.forEach(card => this.props.createCard(card, response.id) ))
+    .then( () => this.resetState())
 }
   render(){
     let {name, description, cards} = this.state
@@ -58,9 +63,9 @@ class NewPage extends React.Component {
         <div className="overlay"></div>
         <form className="createNew" onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <label htmlFor="name">Name</label>
-          <input type="text" className="deckInput" name="name" id="name" value={name} />
+          <input type="text" className="deckInput" name="name" id="name" value={name} autoComplete="off"/>
           <label htmlFor="description">Description</label>
-          <textarea type="text"  className="deckInput" name="description" id="description" value={description} />
+          <textarea type="text"  className="deckInput" name="description" id="description" value={description}  autoComplete="off"/>
 
           <CardInputs cards={cards} />
           <button className="addCard" onClick={this.addCard}><span>  + ADD CARD  </span></button>
