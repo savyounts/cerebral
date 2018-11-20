@@ -14,11 +14,11 @@ export const updateHighscore = (score, deckId) => ({type: "UPDATE_DECK_HIGHSCORE
 export const createDeck = (deckInfo, cards) => {
   return (dispatch) => {
     return Axios.post('http://localhost:3001/api/decks',
-    deckInfo)
-      .then(response => {dispatch({type: 'CREATE_DECK_SUCCESS', payload: response.data})
-    return response.data})
-      .catch(error => {
-        throw(error);
-      });
+      deckInfo)
+    .then(response => {dispatch({type: 'CREATE_DECK_SUCCESS', payload: response.data})
+      return response.data})
+    .catch(error => {
+      throw(error);
+    });
   };
 };

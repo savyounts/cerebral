@@ -2,8 +2,8 @@ import React from 'react'
 import CardInputs from './CardInputs'
 import { createDeck } from '../../actions/deckActions'
 import { createCard } from '../../actions/cardActions'
-
 import { connect } from 'react-redux'
+
 
 class NewPage extends React.Component {
 
@@ -30,12 +30,6 @@ class NewPage extends React.Component {
     }
   }
 
- findDeck = () => {
-   fetch(`http://localhost:3001/api/decks`)
-   .then(response => response.json())
-   .then(decks => console.log(decks[decks.length -1]))
- }
-
  resetState = () => {
    this.setState({
      cards: [],
@@ -56,14 +50,18 @@ class NewPage extends React.Component {
     let {name, description, cards} = this.state
     return(
       <React.Fragment>
+
         <div className="overlay"></div>
         <form className="createNew" onSubmit={this.handleSubmit} onChange={this.handleChange}>
+
           <label htmlFor="name">Name</label>
           <input type="text" className="deckInput" name="name" id="name" value={name} autoComplete="off"/>
+
           <label htmlFor="description">Description</label>
           <textarea type="text"  className="deckInput" name="description" id="description" value={description}  autoComplete="off"/>
 
           <CardInputs cards={cards} />
+
           <button className="addCard" onClick={this.addCard}><span>  + ADD CARD  </span></button>
           <button  className="addCard" type="submit" onClick={this.createCardsAndDeck}><span>CREATE DECK</span></button>
         </form>

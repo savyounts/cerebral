@@ -5,21 +5,25 @@ import DeckPage from "../DeckShow/DeckPage"
 import Footer from './Footer'
 import NewPage from '../CreateDeck/NewPage'
 import NotFound from './NotFound'
-import Header from './Header'
+import Navigation from './Navigation'
 
 
 
 const Main = () => (
   <BrowserRouter>
     <React.Fragment>
-      <Header />
+
+      <Navigation />
+
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route path='/decks/new' component={NewPage}/>
         <Route path='/decks/:id' render={routerProps => <DeckPage {...routerProps}/> }/>
         <Route component={NotFound} />
       </Switch>
+
     <Footer/>
+    
   </React.Fragment>
 </BrowserRouter>
 )

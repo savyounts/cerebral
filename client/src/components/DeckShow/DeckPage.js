@@ -4,8 +4,8 @@ import DeckHeader from './DeckHeader'
 import StartRound from './StartRound'
 import EndRound from './EndRound'
 import {connect} from 'react-redux'
-import { createRound, updateScore } from './roundActions'
-import { createGuess } from './guessActions'
+import { createRound, updateScore } from '../../actions/roundActions'
+import { createGuess } from '../../actions/guessActions'
 import { updateHighscore } from '../../actions/deckActions'
 
 

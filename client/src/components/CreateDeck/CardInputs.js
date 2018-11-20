@@ -5,7 +5,9 @@ const CardInputs = (props) =>{
     props.cards.map((val, idx)=>{
       let qId = `q-${idx}`, aId=`a-${idx}`, hId=`h-${idx}`
       return(
+
         <div className="cardInput" key={idx}>
+
           <div className="rightBorder">
             <input
               type="text"
@@ -17,6 +19,7 @@ const CardInputs = (props) =>{
             />
             <label htmlFor="question">Question</label>
           </div>
+
           <div className="rightBorder">
             <input
               type="text"
@@ -28,6 +31,7 @@ const CardInputs = (props) =>{
             />
             <label htmlFor="answer">Answer</label>
           </div>
+
           <div>
             <input
               type="text"
@@ -39,6 +43,7 @@ const CardInputs = (props) =>{
             />
             <label htmlFor="hint">Hint</label>
           </div>
+          
         </div>
       )
     })

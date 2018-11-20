@@ -1,60 +1,22 @@
 import React, {PureComponent} from 'react'
 import NavItem from './NavItem'
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const Input = styled.input`
-  padding: 0.5em;
-  margin: 0.5em;
-  color: ${props => props.inputColor || "#7BC68F"};
-  background: none;
-  border: #7BC68F;
-`;
+const Navigation = () =>
+  <nav className="navbar navbar-expand-lg navbar-custom">
+    <Link className="navbar-custom-brand" to="/">Cerebral</Link>
 
+    <section className="navbar-ul">
 
-class Navigation extends PureComponent {
+      <div className="verticalLine">
+        <NavItem name="create" path="/decks/new" className="navbar-ul"/>
+      </div>
+    </section>
 
-  state = {
-    searchTerm: ''
-  }
+      {/*<ul className="navbar-ul">
+        <NavItem name="Login" path="/login" className={liClassName} pageURI={this.pageURI}/>
+        <NavItem name="Signup" path="/signup" className='signup-button' pageURI={this.pageURI}/>
+      </ul>*/}
+  </nav>
 
-  handleChange = e =>{
-    this.setState({
-      searchTerm: e.target.value
-    })
-  }
-
-  render(){
-    const pageURI = window.location.pathname+window.location.search
-    const liClassName = (this.props.path === pageURI) ? "nav-item acitve" : "nav-item"
-
-    return(
-
-      <nav className="navbar navbar-expand-lg navbar-custom">
-         <Link className="navbar-custom-brand" to="/">Cerebral</Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse full-nav" id="navbarSupportedContent">
-          <section className="navbar-ul">
-
-            <div className="verticalLine">
-              <NavItem name="create" path="/decks/new" className="navbar-ul" pageURI={this.pageURI}/>
-            </div>
-          </section>
-
-          {/*<ul className="navbar-ul">
-            <NavItem name="Login" path="/login" className={liClassName} pageURI={this.pageURI}/>
-            <NavItem name="Signup" path="/signup" className='signup-button' pageURI={this.pageURI}/>
-          </ul>*/}
-
-        </div>
-      </nav>
-
-
-    )
-  }
-
-}
 export default Navigation

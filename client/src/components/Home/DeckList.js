@@ -4,9 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
 
-class Decks extends React.Component{
-
-
+class DeckList extends React.Component{
 
   render(){
     let DeckWithRouter = withRouter(Deck)
@@ -20,8 +18,10 @@ class Decks extends React.Component{
   )}
 }
 
+
+
 const mapStateToProps = state => {
   return {decks: state.decks}
 }
 
-export default connect(mapStateToProps)(Decks)
+export default connect(mapStateToProps)(DeckList)

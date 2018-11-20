@@ -20,20 +20,21 @@ class Question extends React.Component{
     })
     this.props.onSubmit()
   }
+
   render(){
     return(
       <React.Fragment>
-            <h2>{this.props.card.question}</h2>
-            {this.state.isHidden && <p>{this.props.card.hint}</p>}
-            {!this.state.isHidden && <button className="hintButton" onClick={this.clickHint}>HINT</button>}
+        <h2>{this.props.card.question}</h2>
+        {this.state.isHidden && <p>{this.props.card.hint}</p>}
+        {!this.state.isHidden && <button className="hintButton" onClick={this.clickHint}>HINT</button>}
 
-            <section className="card-buttons">
-              <p>{this.props.turn}/{this.props.total}</p>
-            </section>
+        <section className="card-buttons">
+          <p>{this.props.turn}/{this.props.total}</p>
+        </section>
 
-          <footer>
-            <InputForm value={this.props.value} onChange={this.props.onChange} onSubmit={this.handleSubmit} placeholder="answer here..." objectId={this.props.card.id} button="answer"/>
-          </footer>
+        <footer>
+          <InputForm value={this.props.value} onChange={this.props.onChange} onSubmit={this.handleSubmit} placeholder="answer here..." objectId={this.props.card.id} button="answer"/>
+        </footer>
 
       </React.Fragment>
     )}

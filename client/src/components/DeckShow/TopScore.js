@@ -6,7 +6,7 @@ const TopScore = ({round, num, cards}) => (
       <p>{num}</p>
     </div>
     <div className="highscore-info-box">
-      <span>{round.time} secs</span> <span>{percentCorrect(round.score, cards)}%</span> <span>{round.username}</span>
+      <span>{percentCorrect(round.score, cards)}%</span> <span>{round.username}</span>
     </div>
   </div>
 
