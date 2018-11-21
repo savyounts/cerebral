@@ -4,12 +4,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 15%;
+  color: #291F2E;
+}
+
+.notFound a {
+  color: #7BC68F;
+}
+
+.notFound a:hover {
+  color: #7BC68F
 }
 
 /* Navigation */
 .navbar-custom{
   background-color: #291F2E;
   height: 7em;
+}
+
+.nav-link:hover, .navbar-custom-brand:hover{
+  color: #7BC68F;
+  text-decoration: none;
+
 }
 
 .navbar-custom-brand {

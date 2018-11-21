@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const NotFound = () =>
     <div className="notFound">
-      <h1>404: Not found</h1>
-      <Link to='/'>Back to home</Link>
+      <h1>Whoops, this page doesn't exist</h1>
+      <Link to='/'>Click here to see all our quizzes</Link>
     </div>
 
 
