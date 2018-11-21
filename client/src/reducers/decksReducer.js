@@ -17,8 +17,6 @@ export default function deckReducer(state = [], action){
         cards: [...state[deck].cards, action.payload]},
         ...state.slice(deck + 1)]
 
-      return state
-
     default:
         return state
   }
