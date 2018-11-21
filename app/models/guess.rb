@@ -6,6 +6,6 @@ class Guess < ApplicationRecord
 
 
   def correct?
-    response == card.answer
+    response.downcase == card.answer.downcase
   end
 end

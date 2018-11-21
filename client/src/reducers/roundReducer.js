@@ -4,7 +4,7 @@ export default function roundReducer(state = {}, action){
       return action.payload
 
     case 'UPDATE_SCORE':
-        const num = (action.guess === action.card.answer) ? 1 : 0
+        const num = (action.guess.toLowerCase() === action.card.answer.toLowerCase()) ? 1 : 0
         return {...state, score:state.score + num}
 
     default:
