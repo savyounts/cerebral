@@ -24,6 +24,7 @@ gem 'rack-cors', require: 'rack/cors'
 # Active Admin
 gem 'devise'
 gem 'activeadmin'
+gem 'puma'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
