@@ -40,10 +40,13 @@ class NewPage extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
+    console.log('log','A')
     this.props.createDeck({name: this.state.name, description: this.state.description})
-    .then(response =>
-      this.state.cards.forEach(card => this.props.createCard(card, response.id) ))
+    .then(response =>{
+      console.log('log','test')
+      this.state.cards.forEach(card => this.props.createCard(card, response.id) )})
     .then( () => this.resetState())
+    console.log('log','B')
 }
 
   render(){

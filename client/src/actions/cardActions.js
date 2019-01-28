@@ -11,13 +11,16 @@ export function fetchCards(){
 
 
 export const createCard = (card, deckId) => {
+  console.log('log','C')
   return (dispatch) => {
     return Axios.post('http://localhost:3001/api/cards',
     {deck_id: deckId, question: card.question, answer: card.answer, hint:card.hint})
     .then(response => {
+      console.log('log','D')
          dispatch( {type: 'CREATE_CARD_SUCCESS', payload: response.data}) })
     .catch(error => {
         throw(error);
     });
   };
+  console.log('log','E')
 };
